@@ -1,9 +1,12 @@
 // NPM import
 import React from 'react';
 
+// locals imports
+import './countTodos.scss';
+
 // components
 const CountTodos = () => (
-  <div>
+  <div className="count">
     0 tâche(s) en cours
   </div>
 );

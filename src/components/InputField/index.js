@@ -1,10 +1,13 @@
 // NPM import
 import React from 'react';
 
+// locals imports
+import './inputField.scss';
+
 // components
 const InputField = () => (
-  <form>
-    <input type="text" />
+  <form className="form">
+    <input className="form-input" type="text" />
   </form>
 );
 

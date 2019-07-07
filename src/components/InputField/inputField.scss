@@ -1,0 +1,22 @@
+@import 'src/styles/_vars.scss';
+
+.form {
+  background-color: $inputBackground;
+  padding: 1em 3em;
+
+  &-input {
+    width: 100%;
+    line-height: 1.5;
+    background-color: $inputBackground;
+    border: none;
+    font-size: 1.3em;
+    border-bottom: 1px solid #fff;
+    color: $fontColor;
+    letter-spacing: .05em;
+
+    &:focus {
+      border-bottom: 1px solid darken(#fff, 30%);
+      transition: border-bottom .3s;
+    }
+  }
+}
