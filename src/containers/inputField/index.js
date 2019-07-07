@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import InputField from 'src/components/InputField';
 
 // Action Creators
-import { onChangeInput } from 'src/store/reducer';
+import { onChangeInput, addNewTask } from 'src/store/reducer';
 
 
 const mapStateToProps = (state) => {
@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onChangeInput: (value) => {
       dispatch(onChangeInput(value));
+    },
+    addTask: () => {
+      dispatch(addNewTask());
     },
   };
 };
