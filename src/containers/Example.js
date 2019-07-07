@@ -2,10 +2,10 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Example from 'src/components/Example';
+// import Example from 'src/components/Example';
 
 // Action Creators
-import { doSomething } from 'src/store/reducer';
+// import {  } from 'src/store/reducer';
 
 /* === State (données) ===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
@@ -14,9 +14,7 @@ import { doSomething } from 'src/store/reducer';
  *  - ownProps : les props passées au container
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
-const mapStateToProps = (state, ownProps) => ({
-  message: state.message,
-});
+const mapStateToProps = null;
 
 /* === Actions ===
  * - mapDispatchToProps retroune un objet de props pour le composant de présentation
@@ -25,20 +23,16 @@ const mapStateToProps = (state, ownProps) => ({
  *  - ownProps : les props passées au container
  * Pas de disptach à transmettre ? const mapDispatchToProps = {};
  */
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  doSomething: () => {
-    dispatch(doSomething('Coucou'));
-  },
-});
+const mapDispatchToProps = {};
 
 // Container
-const ExampleContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Example);
+// const ExampleContainer = connect(
+//   mapStateToProps,
+//   mapDispatchToProps,
+// )(Example);
 
 // == Export
-export default ExampleContainer;
+// export default ExampleContainer;
 
 /* = export à la volée
 export default connect(

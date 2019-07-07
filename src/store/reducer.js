@@ -1,18 +1,19 @@
 // == Initial State
 const initialState = {
-  message: 'Hello',
+  tasksList: [],
+  inputValue: '',
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
+const CHANGE_INPUT = 'CHANGE_INPUT';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
+    case CHANGE_INPUT:
       return {
         ...state,
-        message: action.message,
+        inputValue: action.inputValue,
       };
 
     default:
@@ -21,11 +22,12 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
-export const doSomething = message => ({
-  type: DO_SOMETHING,
-  message,
-});
-
+export const onChangeInput = (value) => {
+  return {
+    type: CHANGE_INPUT,
+    inputValue: value,
+  };
+};
 
 // == Selectors
 

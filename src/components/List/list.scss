@@ -5,8 +5,8 @@
 
   &-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background-color: $taskBackground;
     margin: .5em 0;
     text-align: left;
@@ -15,7 +15,6 @@
     letter-spacing: .03em;
 
     &--delete {
-      display: block;
       width: 1.3em;
       height: 1.3em;
       cursor: pointer;

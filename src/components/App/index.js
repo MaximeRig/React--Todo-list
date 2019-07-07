@@ -3,16 +3,16 @@ import React from 'react';
 
 // == Import : local
 import './app.scss';
-import InputField from 'src/components/InputField';
-import CountTodos from 'src/components/CountTodos';
-import List from 'src/components/List';
+import InputField from 'src/containers/inputField';
+// import CountTodos from 'src/components/CountTodos';
+// import List from 'src/components/List';
 
 // == Composant
 const App = () => (
   <div id="app">
     <InputField />
-    <CountTodos />
-    <List />
+    {/* <CountTodos />
+    <List /> */}
   </div>
 );
 
