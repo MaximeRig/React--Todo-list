@@ -1,15 +1,21 @@
 // NPM import
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // locals imports
 import './countTodos.scss';
 
 // components
-const CountTodos = () => (
+const CountTodos = ({ taskNumber }) => (
   <div className="count">
-    0 tâche(s) en cours
+    {taskNumber} tâche(s) en cours
   </div>
 );
+
+// Validation
+CountTodos.propTypes = {
+  taskNumber: PropTypes.number.isRequired,
+};
 
 // export
 export default CountTodos;

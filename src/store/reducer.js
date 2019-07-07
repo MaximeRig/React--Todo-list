@@ -1,6 +1,7 @@
 // == Initial State
 const initialState = {
   tasksList: [],
+  taskNumber: 0,
   inputValue: '',
 };
 
@@ -30,9 +31,13 @@ const reducer = (state = initialState, action = {}) => {
         inputValue,
       ];
 
+      // Add 1 to tasksNumber
+      const count = state.taskNumber + 1;
+
       // return new state
       return {
         ...state,
+        taskNumber: count,
         tasksList: newTasksList,
         inputValue: '',
       };
