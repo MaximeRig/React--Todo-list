@@ -1,6 +1,15 @@
 // == Initial State
 const initialState = {
-  tasksList: [],
+  tasksList: [
+    {
+      id: 0,
+      title: 'tache 1',
+    },
+    {
+      id: 1,
+      title: 'tache 2',
+    },
+  ],
   taskNumber: 0,
   inputValue: '',
 };
@@ -25,10 +34,24 @@ const reducer = (state = initialState, action = {}) => {
       // Retrieve actual tasks
       const { tasksList } = state;
 
+      // Generate an id to a new task
+      // Retrieve all task ids in an array
+      const allIds = tasksList.map(currentTask => currentTask.id);
+      // Find the biggest id in allIds
+      const biggestId = Math.max(...allIds); // dump every index of allIds array in max() method directly
+      // New id
+      const newId = biggestId + 1;
+
+      // new task
+      const newTask = {
+        id: newId,
+        title: inputValue,
+      };
+
       // new tasksList
       const newTasksList = [
         ...tasksList,
-        inputValue,
+        newTask,
       ];
 
       // Add 1 to tasksNumber

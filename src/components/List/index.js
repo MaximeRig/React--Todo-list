@@ -8,13 +8,26 @@ import { MdDeleteForever } from 'react-icons/md';
 import './list.scss';
 
 // components
-const List = ({ tasksList }) => (
-  <ul className="list">
-    {tasksList.map(currentTask => (
-      <li key={currentTask} className="list-item">{currentTask}<MdDeleteForever className="list-item--delete" /></li>
-    ))}
-  </ul>
-);
+const List = ({ tasksList }) => {
+
+  /**
+   * Todo : ajouter un id à chaque tâche ajouter pour pouvoir cibler une tache pour la supprimer ou la modifier
+   */
+
+  // handleClick to delete a task
+  const handleClick = (event) => {
+    // get the value to delete
+    
+  };
+
+  return (
+    <ul className="list">
+      {tasksList.map(currentTask => (
+        <li key={currentTask.id} className="list-item">{currentTask.title}<MdDeleteForever onClick={handleClick} className="list-item--delete" /></li>
+      ))}
+    </ul>
+  );
+};
 
 // props validation
 List.propTypes = {
