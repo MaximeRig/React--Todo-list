@@ -1,15 +1,6 @@
 // == Initial State
 const initialState = {
-  tasksList: [
-    // {
-    //   id: 0,
-    //   title: 'tache 1',
-    // },
-    // {
-    //   id: 1,
-    //   title: 'tache 2',
-    // },
-  ],
+  tasksList: [],
   taskNumber: 0,
   inputValue: '',
 };
@@ -18,6 +9,7 @@ const initialState = {
 const CHANGE_INPUT = 'CHANGE_INPUT';
 const ADD_TASK = 'ADD_TASK';
 const DELETE_TASK = 'DELETE_TASK';
+const DONE_TASK = 'DONE_TASK';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -50,6 +42,7 @@ const reducer = (state = initialState, action = {}) => {
       const newTask = {
         id: newId,
         title: inputValue,
+        done: false,
       };
 
       // new tasksList
@@ -90,6 +83,25 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
+    case DONE_TASK: {
+      // Get actual tasks list
+      const { tasksList } = state;
+      // Get id to change to done
+      const { id } = action;
+      // map on tasksList to change done property to true with the id
+      const newTasksList = tasksList.map((currentTask) => {
+        if (currentTask.id === id) {
+          currentTask.done = true;
+        }
+        return currentTask;
+      });
+      // return new state
+      return {
+        ...state,
+        tasksList: newTasksList,
+      };
+    }
+
     default:
       return state;
   }
@@ -107,6 +119,11 @@ export const addNewTask = () => ({
 
 export const deleteTask = id => ({
   type: DELETE_TASK,
+  id,
+});
+
+export const doneTask = id => ({
+  type: DONE_TASK,
   id,
 });
 
