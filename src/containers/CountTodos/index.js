@@ -7,7 +7,8 @@ import CountTodos from 'src/components/CountTodos';
 
 const mapStateToProps = (state) => {
   return {
-    taskNumber: state.taskNumber,
+    taskInProgress: state.taskInProgress,
+    taskDone: state.taskDone,
   };
 };
 

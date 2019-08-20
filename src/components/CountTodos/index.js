@@ -6,15 +6,21 @@ import PropTypes from 'prop-types';
 import './countTodos.scss';
 
 // components
-const CountTodos = ({ taskNumber }) => (
-  <div className="count">
-    {taskNumber} tâche(s) en cours
-  </div>
+const CountTodos = ({ taskInProgress, taskDone }) => (
+  <React.Fragment>
+    <div className="count">
+      {taskInProgress} tâche(s) en cours
+    </div>
+    <div className="count">
+      {taskDone} tâche(s) terminé(e)s
+    </div>
+  </React.Fragment>
 );
 
 // Validation
 CountTodos.propTypes = {
-  taskNumber: PropTypes.number.isRequired,
+  taskInProgress: PropTypes.number.isRequired,
+  taskDone: PropTypes.number.isRequired,
 };
 
 // export

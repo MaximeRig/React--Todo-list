@@ -1,7 +1,8 @@
 // == Initial State
 const initialState = {
   tasksList: [],
-  taskNumber: 0,
+  taskInProgress: 0,
+  taskDone: 0,
   inputValue: '',
 };
 
@@ -10,6 +11,12 @@ const CHANGE_INPUT = 'CHANGE_INPUT';
 const ADD_TASK = 'ADD_TASK';
 const DELETE_TASK = 'DELETE_TASK';
 const DONE_TASK = 'DONE_TASK';
+
+// == Factorization with functions
+// Count task in progress
+const countInProgressTasks = tasks => tasks.filter(currentTask => !currentTask.done).length;
+// Count task done
+const countTaskDone = tasks => tasks.filter(currentTask => currentTask.done).length;
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -51,13 +58,13 @@ const reducer = (state = initialState, action = {}) => {
         newTask,
       ];
 
-      // Add 1 to tasksNumber
-      const count = state.taskNumber + 1;
+      // count tasks in progress
+      const count = countInProgressTasks(newTasksList);
 
       // return new state
       return {
         ...state,
-        taskNumber: count,
+        taskInProgress: count,
         tasksList: newTasksList,
         inputValue: '',
       };
@@ -72,13 +79,17 @@ const reducer = (state = initialState, action = {}) => {
       // filter the tasksList width the id to delete
       const newTasksList = tasksList.filter(currentTask => (currentTask.id !== idToDelete));
 
-      // remove 1 from tasksNumber
-      const count = state.taskNumber - 1;
+      // count tasks in progress
+      const taskInProgress = countInProgressTasks(newTasksList);
+
+      // count tasks done
+      const taskDone = countTaskDone(newTasksList);
 
       // return new state
       return {
         ...state,
-        taskNumber: count,
+        taskInProgress,
+        taskDone,
         tasksList: newTasksList,
       };
     }
@@ -95,9 +106,18 @@ const reducer = (state = initialState, action = {}) => {
         }
         return currentTask;
       });
+
+      // count tasks in progress
+      const taskInProgress = countInProgressTasks(newTasksList);
+
+      // count tasks done
+      const taskDone = countTaskDone(newTasksList);
+
       // return new state
       return {
         ...state,
+        taskInProgress,
+        taskDone,
         tasksList: newTasksList,
       };
     }
