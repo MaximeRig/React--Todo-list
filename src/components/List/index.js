@@ -1,5 +1,6 @@
 // NPM import
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { MdDeleteForever } from 'react-icons/md';
 
@@ -7,13 +8,18 @@ import { MdDeleteForever } from 'react-icons/md';
 import './list.scss';
 
 // components
-const List = () => (
+const List = ({ tasksList }) => (
   <ul className="list">
-    <li className="list-item">Première tache <MdDeleteForever className="list-item--delete" /></li>
-    <li className="list-item">Seconde tache <MdDeleteForever className="list-item--delete" /></li>
-    <li className="list-item">Troisième tache <MdDeleteForever className="list-item--delete" /></li>
+    {tasksList.map(currentTask => (
+      <li key={currentTask} className="list-item">{currentTask}<MdDeleteForever className="list-item--delete" /></li>
+    ))}
   </ul>
 );
+
+// props validation
+List.propTypes = {
+  tasksList: PropTypes.array.isRequired,
+};
 
 // export
 export default List;

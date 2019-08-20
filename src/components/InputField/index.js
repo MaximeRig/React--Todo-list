@@ -22,7 +22,7 @@ const InputField = ({ addTask, onChangeInput, inputValue }) => {
   };
   return (
     <form onSubmit={onSubmitHandler} className="form">
-      <input onChange={changeHandler} value={inputValue} className="form-input" type="text" />
+      <input onChange={changeHandler} value={inputValue} className="form-input" type="text" placeholder="Soumettre une nouvelle tâche" />
     </form>
   );
 };

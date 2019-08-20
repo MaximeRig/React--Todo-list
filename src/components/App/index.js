@@ -5,14 +5,14 @@ import React from 'react';
 import './app.scss';
 import InputField from 'src/containers/inputField';
 import CountTodos from 'src/containers/CountTodos';
-// import List from 'src/components/List';
+import List from 'src/containers/List';
 
 // == Composant
 const App = () => (
   <div id="app">
     <InputField />
     <CountTodos />
-    {/* <List /> */}
+    <List />
   </div>
 );
 
