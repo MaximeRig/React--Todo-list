@@ -2,7 +2,7 @@
 
 .form {
   background-color: $inputBackground;
-  padding: 1em 3em;
+  padding: .8em 1.2em;
 
   &-input {
     width: 100%;
@@ -18,5 +18,23 @@
       border-bottom: 1px solid darken(#fff, 30%);
       transition: border-bottom .3s;
     }
+  }
+}
+
+@media (min-width: 576px) {
+  .form {
+    padding: .8em 1.2em;
+  }
+}
+
+@media (min-width: 678px) {
+  .form {
+    padding: 1em 1.8em;
+  }
+}
+
+@media (min-width: 992px) {
+  .form {
+    padding: 1em 3em;
   }
 }

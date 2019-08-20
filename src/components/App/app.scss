@@ -2,5 +2,23 @@
   font-size: 1.2em;
   text-align: center;
   margin: 3em auto;
-  width: 50%;
+  width: 90%;
+}
+
+@media (min-width: 576px) {
+  #app {
+    width: 80%;
+  }
+}
+
+@media (min-width: 678px) {
+  #app {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  #app {
+    width: 50%;
+  }
 }
