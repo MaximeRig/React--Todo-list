@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // locals imports
 import './list.scss';
-import Task from 'src/components/List/Task';
+import Task from 'src/containers/List/Task';
 
 // components
 const List = ({ tasksList }) => {

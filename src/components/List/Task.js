@@ -7,16 +7,17 @@ import { MdDeleteForever } from 'react-icons/md';
 import './list.scss';
 
 // component
-const Task = ({ title }) => {
+const Task = ({ title, deleteTask }) => {
 
   return (
-    <li className="list-item">{title}<MdDeleteForever className="list-item--delete" /></li>
+    <li className="list-item">{title}<MdDeleteForever onClick={deleteTask} className="list-item--delete" /></li>
   );
 };
 
 // props validation
 Task.propTypes = {
   title: PropTypes.string.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
 // export default
