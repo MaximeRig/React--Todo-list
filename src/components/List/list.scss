@@ -40,3 +40,9 @@
     }
   }
 }
+
+.taskDone {
+  text-decoration: line-through;
+  color: darken($fontColor, 20%);
+  background-color: darken($taskBackground, 20%);
+}

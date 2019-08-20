@@ -91,7 +91,7 @@ const reducer = (state = initialState, action = {}) => {
       // map on tasksList to change done property to true with the id
       const newTasksList = tasksList.map((currentTask) => {
         if (currentTask.id === id) {
-          currentTask.done = true;
+          currentTask.done = !currentTask.done;
         }
         return currentTask;
       });
